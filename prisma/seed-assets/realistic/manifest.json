@@ -1,0 +1,1430 @@
+[
+  {
+    "slug": "real-men-01",
+    "name": "深灰 米白圆领卫衣",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "卫衣",
+    "color": "GRAY",
+    "colorHex": "#9a958d",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 19900,
+    "image": "prisma/seed-assets/realistic/men-01.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-01-cutout.webp",
+    "caption": "1. men 01 深灰 米白圆领卫衣"
+  },
+  {
+    "slug": "real-men-02",
+    "name": "黑 深灰连帽卫衣",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "卫衣",
+    "color": "GRAY",
+    "colorHex": "#9a958d",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 24900,
+    "image": "prisma/seed-assets/realistic/men-02.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-02-cutout.webp",
+    "caption": "2. men 02 黑 深灰连帽卫衣"
+  },
+  {
+    "slug": "real-men-03",
+    "name": "藏蓝 军绿圆领卫衣",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "卫衣",
+    "color": "NAVY",
+    "colorHex": "#26344d",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 29900,
+    "image": "prisma/seed-assets/realistic/men-03.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-03-cutout.webp",
+    "caption": "3. men 03 藏蓝 军绿圆领卫衣"
+  },
+  {
+    "slug": "real-men-04",
+    "name": "酒红 浅灰圆领卫衣",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "卫衣",
+    "color": "GRAY",
+    "colorHex": "#9a958d",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 34900,
+    "image": "prisma/seed-assets/realistic/men-04.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-04-cutout.webp",
+    "caption": "4. men 04 酒红 浅灰圆领卫衣"
+  },
+  {
+    "slug": "real-men-05",
+    "name": "姜黄 豆绿圆领卫衣",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "卫衣",
+    "color": "YELLOW",
+    "colorHex": "#e0b23c",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 39900,
+    "image": "prisma/seed-assets/realistic/men-05.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-05-cutout.webp",
+    "caption": "5. men 05 姜黄 豆绿圆领卫衣"
+  },
+  {
+    "slug": "real-men-06",
+    "name": "米白 藏蓝连帽卫衣",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "卫衣",
+    "color": "BEIGE",
+    "colorHex": "#e0d0b6",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 44900,
+    "image": "prisma/seed-assets/realistic/men-06.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-06-cutout.webp",
+    "caption": "6. men 06 米白 藏蓝连帽卫衣"
+  },
+  {
+    "slug": "real-men-07",
+    "name": "白 黑短袖T恤",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "T恤",
+    "color": "WHITE",
+    "colorHex": "#f3eee5",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 19900,
+    "image": "prisma/seed-assets/realistic/men-07.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-07-cutout.webp",
+    "caption": "7. men 07 白 黑短袖T恤"
+  },
+  {
+    "slug": "real-men-08",
+    "name": "雾霾蓝 豆绿短袖T恤",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "T恤",
+    "color": "GREEN",
+    "colorHex": "#5b7a52",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 24900,
+    "image": "prisma/seed-assets/realistic/men-08.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-08-cutout.webp",
+    "caption": "8. men 08 雾霾蓝 豆绿短袖T恤"
+  },
+  {
+    "slug": "real-men-09",
+    "name": "深灰 黑长袖T恤",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "T恤",
+    "color": "GRAY",
+    "colorHex": "#9a958d",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 29900,
+    "image": "prisma/seed-assets/realistic/men-09.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-09-cutout.webp",
+    "caption": "9. men 09 深灰 黑长袖T恤"
+  },
+  {
+    "slug": "real-men-10",
+    "name": "酒红 驼色长袖T恤",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "T恤",
+    "color": "RED",
+    "colorHex": "#b3352c",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 34900,
+    "image": "prisma/seed-assets/realistic/men-10.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-10-cutout.webp",
+    "caption": "10. men 10 酒红 驼色长袖T恤"
+  },
+  {
+    "slug": "real-men-11",
+    "name": "藏蓝 军绿印花T恤",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "T恤",
+    "color": "NAVY",
+    "colorHex": "#26344d",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 39900,
+    "image": "prisma/seed-assets/realistic/men-11.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-11-cutout.webp",
+    "caption": "11. men 11 藏蓝 军绿印花T恤"
+  },
+  {
+    "slug": "real-men-12",
+    "name": "浅蓝 白商务衬衫",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "衬衫",
+    "color": "BLUE",
+    "colorHex": "#4a6f9b",
+    "styles": [
+      "SMART_CASUAL",
+      "BUSINESS"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 44900,
+    "image": "prisma/seed-assets/realistic/men-12.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-12-cutout.webp",
+    "caption": "12. men 12 浅蓝 白商务衬衫"
+  },
+  {
+    "slug": "real-men-13",
+    "name": "白 浅蓝正装衬衫",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "衬衫",
+    "color": "BLUE",
+    "colorHex": "#4a6f9b",
+    "styles": [
+      "SMART_CASUAL",
+      "BUSINESS"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 19900,
+    "image": "prisma/seed-assets/realistic/men-13.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-13-cutout.webp",
+    "caption": "13. men 13 白 浅蓝正装衬衫"
+  },
+  {
+    "slug": "real-men-14",
+    "name": "粉 紫商务衬衫",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "衬衫",
+    "color": "PINK",
+    "colorHex": "#e2a7ad",
+    "styles": [
+      "SMART_CASUAL",
+      "BUSINESS"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 24900,
+    "image": "prisma/seed-assets/realistic/men-14.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-14-cutout.webp",
+    "caption": "14. men 14 粉 紫商务衬衫"
+  },
+  {
+    "slug": "real-men-15",
+    "name": "条纹 格纹休闲衬衫",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "衬衫",
+    "color": "MULTI",
+    "colorHex": "#b4552d",
+    "styles": [
+      "SMART_CASUAL",
+      "BUSINESS"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 29900,
+    "image": "prisma/seed-assets/realistic/men-15.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-15-cutout.webp",
+    "caption": "15. men 15 条纹 格纹休闲衬衫"
+  },
+  {
+    "slug": "real-men-16",
+    "name": "浅绿 浅蓝牛津纺衬衫",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "衬衫",
+    "color": "BLUE",
+    "colorHex": "#4a6f9b",
+    "styles": [
+      "SMART_CASUAL",
+      "BUSINESS"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 34900,
+    "image": "prisma/seed-assets/realistic/men-16.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-16-cutout.webp",
+    "caption": "16. men 16 浅绿 浅蓝牛津纺衬衫"
+  },
+  {
+    "slug": "real-men-17",
+    "name": "藏蓝 白POLO衫",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "POLO衫",
+    "color": "NAVY",
+    "colorHex": "#26344d",
+    "styles": [
+      "SMART_CASUAL",
+      "BUSINESS"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 39900,
+    "image": "prisma/seed-assets/realistic/men-17.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-17-cutout.webp",
+    "caption": "17. men 17 藏蓝 白POLO衫"
+  },
+  {
+    "slug": "real-men-18",
+    "name": "黑 浅灰POLO衫",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "POLO衫",
+    "color": "GRAY",
+    "colorHex": "#9a958d",
+    "styles": [
+      "SMART_CASUAL",
+      "BUSINESS"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 44900,
+    "image": "prisma/seed-assets/realistic/men-18.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-18-cutout.webp",
+    "caption": "18. men 18 黑 浅灰POLO衫"
+  },
+  {
+    "slug": "real-men-19",
+    "name": "绿 粉POLO衫",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "POLO衫",
+    "color": "PINK",
+    "colorHex": "#e2a7ad",
+    "styles": [
+      "SMART_CASUAL",
+      "BUSINESS"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 19900,
+    "image": "prisma/seed-assets/realistic/men-19.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-19-cutout.webp",
+    "caption": "19. men 19 绿 粉POLO衫"
+  },
+  {
+    "slug": "real-men-20",
+    "name": "深灰 驼色圆领毛衣",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "毛衣",
+    "color": "GRAY",
+    "colorHex": "#9a958d",
+    "styles": [
+      "MINIMAL",
+      "CASUAL"
+    ],
+    "seasons": [
+      "WINTER",
+      "AUTUMN"
+    ],
+    "priceCents": 24900,
+    "image": "prisma/seed-assets/realistic/men-20.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-20-cutout.webp",
+    "caption": "20. men 20 深灰 驼色圆领毛衣"
+  },
+  {
+    "slug": "real-men-21",
+    "name": "黑白 藏蓝白条纹针织衫",
+    "gender": "MEN",
+    "category": "TOP",
+    "subCategory": "针织衫",
+    "color": "NAVY",
+    "colorHex": "#26344d",
+    "styles": [
+      "MINIMAL",
+      "CASUAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 29900,
+    "image": "prisma/seed-assets/realistic/men-21.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-21-cutout.webp",
+    "caption": "21. men 21 黑白 藏蓝白条纹针织衫"
+  },
+  {
+    "slug": "real-men-22",
+    "name": "深蓝 浅蓝牛仔夹克",
+    "gender": "MEN",
+    "category": "OUTERWEAR",
+    "subCategory": "夹克",
+    "color": "BLUE",
+    "colorHex": "#4a6f9b",
+    "styles": [
+      "SMART_CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "AUTUMN",
+      "WINTER"
+    ],
+    "priceCents": 84900,
+    "image": "prisma/seed-assets/realistic/men-22.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-22-cutout.webp",
+    "caption": "22. men 22 深蓝 浅蓝牛仔夹克"
+  },
+  {
+    "slug": "real-men-23",
+    "name": "卡其 军绿工装夹克",
+    "gender": "MEN",
+    "category": "OUTERWEAR",
+    "subCategory": "夹克",
+    "color": "GREEN",
+    "colorHex": "#5b7a52",
+    "styles": [
+      "SMART_CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "AUTUMN",
+      "WINTER"
+    ],
+    "priceCents": 89900,
+    "image": "prisma/seed-assets/realistic/men-23.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-23-cutout.webp",
+    "caption": "23. men 23 卡其 军绿工装夹克"
+  },
+  {
+    "slug": "real-men-24",
+    "name": "灰 藏蓝商务西装",
+    "gender": "MEN",
+    "category": "OUTERWEAR",
+    "subCategory": "西装",
+    "color": "NAVY",
+    "colorHex": "#26344d",
+    "styles": [
+      "SMART_CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "AUTUMN",
+      "WINTER"
+    ],
+    "priceCents": 94900,
+    "image": "prisma/seed-assets/realistic/men-24.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-24-cutout.webp",
+    "caption": "24. men 24 灰 藏蓝商务西装"
+  },
+  {
+    "slug": "real-men-25",
+    "name": "卡其 藏蓝风衣",
+    "gender": "MEN",
+    "category": "OUTERWEAR",
+    "subCategory": "风衣",
+    "color": "NAVY",
+    "colorHex": "#26344d",
+    "styles": [
+      "SMART_CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "AUTUMN",
+      "WINTER"
+    ],
+    "priceCents": 69900,
+    "image": "prisma/seed-assets/realistic/men-25.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-25-cutout.webp",
+    "caption": "25. men 25 卡其 藏蓝风衣"
+  },
+  {
+    "slug": "real-men-26",
+    "name": "黑 藏蓝羽绒服",
+    "gender": "MEN",
+    "category": "OUTERWEAR",
+    "subCategory": "羽绒服",
+    "color": "NAVY",
+    "colorHex": "#26344d",
+    "styles": [
+      "SMART_CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "WINTER",
+      "AUTUMN"
+    ],
+    "priceCents": 74900,
+    "image": "prisma/seed-assets/realistic/men-26.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-26-cutout.webp",
+    "caption": "26. men 26 黑 藏蓝羽绒服"
+  },
+  {
+    "slug": "real-men-27",
+    "name": "黑 灰立领夹克",
+    "gender": "MEN",
+    "category": "OUTERWEAR",
+    "subCategory": "夹克",
+    "color": "BLACK",
+    "colorHex": "#1c1a17",
+    "styles": [
+      "SMART_CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "AUTUMN",
+      "WINTER"
+    ],
+    "priceCents": 79900,
+    "image": "prisma/seed-assets/realistic/men-27.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-27-cutout.webp",
+    "caption": "27. men 27 黑 灰立领夹克"
+  },
+  {
+    "slug": "real-men-28",
+    "name": "深蓝牛仔 浅灰休闲裤",
+    "gender": "MEN",
+    "category": "BOTTOM",
+    "subCategory": "休闲裤",
+    "color": "BLUE",
+    "colorHex": "#4a6f9b",
+    "styles": [
+      "CASUAL",
+      "SPORTY"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 44900,
+    "image": "prisma/seed-assets/realistic/men-28.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-28-cutout.webp",
+    "caption": "28. men 28 深蓝牛仔 浅灰休闲裤"
+  },
+  {
+    "slug": "real-men-29",
+    "name": "深蓝 黑牛仔裤",
+    "gender": "MEN",
+    "category": "BOTTOM",
+    "subCategory": "牛仔裤",
+    "color": "BLUE",
+    "colorHex": "#4a6f9b",
+    "styles": [
+      "CASUAL",
+      "SPORTY"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 49900,
+    "image": "prisma/seed-assets/realistic/men-29.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-29-cutout.webp",
+    "caption": "29. men 29 深蓝 黑牛仔裤"
+  },
+  {
+    "slug": "real-men-30",
+    "name": "卡其 棕休闲裤",
+    "gender": "MEN",
+    "category": "BOTTOM",
+    "subCategory": "休闲裤",
+    "color": "BEIGE",
+    "colorHex": "#e0d0b6",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 54900,
+    "image": "prisma/seed-assets/realistic/men-30.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-30-cutout.webp",
+    "caption": "30. men 30 卡其 棕休闲裤"
+  },
+  {
+    "slug": "real-men-31",
+    "name": "黑 灰运动裤",
+    "gender": "MEN",
+    "category": "BOTTOM",
+    "subCategory": "运动裤",
+    "color": "BLACK",
+    "colorHex": "#1c1a17",
+    "styles": [
+      "CASUAL",
+      "SPORTY"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 29900,
+    "image": "prisma/seed-assets/realistic/men-31.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-31-cutout.webp",
+    "caption": "31. men 31 黑 灰运动裤"
+  },
+  {
+    "slug": "real-men-32",
+    "name": "黑 灰正装西裤",
+    "gender": "MEN",
+    "category": "BOTTOM",
+    "subCategory": "西裤",
+    "color": "BLACK",
+    "colorHex": "#1c1a17",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 34900,
+    "image": "prisma/seed-assets/realistic/men-32.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-32-cutout.webp",
+    "caption": "32. men 32 黑 灰正装西裤"
+  },
+  {
+    "slug": "real-men-33",
+    "name": "卡其 牛仔短裤",
+    "gender": "MEN",
+    "category": "BOTTOM",
+    "subCategory": "短裤",
+    "color": "BEIGE",
+    "colorHex": "#e0d0b6",
+    "styles": [
+      "CASUAL",
+      "SPORTY"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 39900,
+    "image": "prisma/seed-assets/realistic/men-33.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-33-cutout.webp",
+    "caption": "33. men 33 卡其 牛仔短裤"
+  },
+  {
+    "slug": "real-men-34",
+    "name": "黑 灰束脚裤",
+    "gender": "MEN",
+    "category": "BOTTOM",
+    "subCategory": "束脚裤",
+    "color": "BLACK",
+    "colorHex": "#1c1a17",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 44900,
+    "image": "prisma/seed-assets/realistic/men-34.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-34-cutout.webp",
+    "caption": "34. men 34 黑 灰束脚裤"
+  },
+  {
+    "slug": "real-men-35",
+    "name": "深灰 黑休闲裤",
+    "gender": "MEN",
+    "category": "BOTTOM",
+    "subCategory": "休闲裤",
+    "color": "GRAY",
+    "colorHex": "#9a958d",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 49900,
+    "image": "prisma/seed-assets/realistic/men-35.jpg",
+    "cutout": "prisma/seed-assets/realistic/men-35-cutout.webp",
+    "caption": "35. men 35 深灰 黑休闲裤"
+  },
+  {
+    "slug": "real-women-01",
+    "name": "米色 淡粉针织连衣裙",
+    "gender": "WOMEN",
+    "category": "DRESS",
+    "subCategory": "连衣裙",
+    "color": "PINK",
+    "colorHex": "#e2a7ad",
+    "styles": [
+      "ROMANTIC",
+      "FRENCH"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 74900,
+    "image": "prisma/seed-assets/realistic/women-01.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-01-cutout.webp",
+    "caption": "1. women 01 米色 淡粉针织连衣裙"
+  },
+  {
+    "slug": "real-women-02",
+    "name": "黑 藏蓝收腰连衣裙",
+    "gender": "WOMEN",
+    "category": "DRESS",
+    "subCategory": "连衣裙",
+    "color": "NAVY",
+    "colorHex": "#26344d",
+    "styles": [
+      "ROMANTIC",
+      "FRENCH"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 49900,
+    "image": "prisma/seed-assets/realistic/women-02.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-02-cutout.webp",
+    "caption": "2. women 02 黑 藏蓝收腰连衣裙"
+  },
+  {
+    "slug": "real-women-03",
+    "name": "白底 淡蓝碎花连衣裙",
+    "gender": "WOMEN",
+    "category": "DRESS",
+    "subCategory": "连衣裙",
+    "color": "BLUE",
+    "colorHex": "#4a6f9b",
+    "styles": [
+      "ROMANTIC",
+      "FRENCH"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 54900,
+    "image": "prisma/seed-assets/realistic/women-03.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-03-cutout.webp",
+    "caption": "3. women 03 白底 淡蓝碎花连衣裙"
+  },
+  {
+    "slug": "real-women-04",
+    "name": "黑 杏色吊带连衣裙",
+    "gender": "WOMEN",
+    "category": "DRESS",
+    "subCategory": "连衣裙",
+    "color": "BEIGE",
+    "colorHex": "#e0d0b6",
+    "styles": [
+      "ROMANTIC",
+      "FRENCH"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 59900,
+    "image": "prisma/seed-assets/realistic/women-04.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-04-cutout.webp",
+    "caption": "4. women 04 黑 杏色吊带连衣裙"
+  },
+  {
+    "slug": "real-women-05",
+    "name": "黑 灰长袖连衣裙",
+    "gender": "WOMEN",
+    "category": "DRESS",
+    "subCategory": "连衣裙",
+    "color": "BLACK",
+    "colorHex": "#1c1a17",
+    "styles": [
+      "ROMANTIC",
+      "FRENCH"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 64900,
+    "image": "prisma/seed-assets/realistic/women-05.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-05-cutout.webp",
+    "caption": "5. women 05 黑 灰长袖连衣裙"
+  },
+  {
+    "slug": "real-women-06",
+    "name": "白 淡蓝雪纺衬衫",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "衬衫",
+    "color": "BLUE",
+    "colorHex": "#4a6f9b",
+    "styles": [
+      "SMART_CASUAL",
+      "BUSINESS"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 39900,
+    "image": "prisma/seed-assets/realistic/women-06.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-06-cutout.webp",
+    "caption": "6. women 06 白 淡蓝雪纺衬衫"
+  },
+  {
+    "slug": "real-women-07",
+    "name": "浅蓝 鹅黄衬衫",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "衬衫",
+    "color": "BLUE",
+    "colorHex": "#4a6f9b",
+    "styles": [
+      "SMART_CASUAL",
+      "BUSINESS"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 44900,
+    "image": "prisma/seed-assets/realistic/women-07.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-07-cutout.webp",
+    "caption": "7. women 07 浅蓝 鹅黄衬衫"
+  },
+  {
+    "slug": "real-women-08",
+    "name": "条纹 格子衬衫",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "衬衫",
+    "color": "MULTI",
+    "colorHex": "#b4552d",
+    "styles": [
+      "SMART_CASUAL",
+      "BUSINESS"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 19900,
+    "image": "prisma/seed-assets/realistic/women-08.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-08-cutout.webp",
+    "caption": "8. women 08 条纹 格子衬衫"
+  },
+  {
+    "slug": "real-women-09",
+    "name": "白 淡蓝立领雪纺衬衫",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "衬衫",
+    "color": "BLUE",
+    "colorHex": "#4a6f9b",
+    "styles": [
+      "SMART_CASUAL",
+      "BUSINESS"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 24900,
+    "image": "prisma/seed-assets/realistic/women-09.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-09-cutout.webp",
+    "caption": "9. women 09 白 淡蓝立领雪纺衬衫"
+  },
+  {
+    "slug": "real-women-10",
+    "name": "粉 紫长袖衬衫",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "衬衫",
+    "color": "PINK",
+    "colorHex": "#e2a7ad",
+    "styles": [
+      "SMART_CASUAL",
+      "BUSINESS"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 29900,
+    "image": "prisma/seed-assets/realistic/women-10.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-10-cutout.webp",
+    "caption": "10. women 10 粉 紫长袖衬衫"
+  },
+  {
+    "slug": "real-women-11",
+    "name": "白 黑基础短袖T恤",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "T恤",
+    "color": "WHITE",
+    "colorHex": "#f3eee5",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 34900,
+    "image": "prisma/seed-assets/realistic/women-11.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-11-cutout.webp",
+    "caption": "11. women 11 白 黑基础短袖T恤"
+  },
+  {
+    "slug": "real-women-12",
+    "name": "粉 黄宽松短袖T恤",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "T恤",
+    "color": "PINK",
+    "colorHex": "#e2a7ad",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 39900,
+    "image": "prisma/seed-assets/realistic/women-12.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-12-cutout.webp",
+    "caption": "12. women 12 粉 黄宽松短袖T恤"
+  },
+  {
+    "slug": "real-women-13",
+    "name": "白 黑细肩带吊带",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "吊带",
+    "color": "WHITE",
+    "colorHex": "#f3eee5",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 44900,
+    "image": "prisma/seed-assets/realistic/women-13.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-13-cutout.webp",
+    "caption": "13. women 13 白 黑细肩带吊带"
+  },
+  {
+    "slug": "real-women-14",
+    "name": "黑 白方领泡泡袖上衣",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "上衣",
+    "color": "WHITE",
+    "colorHex": "#f3eee5",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 19900,
+    "image": "prisma/seed-assets/realistic/women-14.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-14-cutout.webp",
+    "caption": "14. women 14 黑 白方领泡泡袖上衣"
+  },
+  {
+    "slug": "real-women-15",
+    "name": "白 黑方领泡泡袖上衣",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "上衣",
+    "color": "WHITE",
+    "colorHex": "#f3eee5",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 24900,
+    "image": "prisma/seed-assets/realistic/women-15.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-15-cutout.webp",
+    "caption": "15. women 15 白 黑方领泡泡袖上衣"
+  },
+  {
+    "slug": "real-women-16",
+    "name": "浅灰 粉圆领卫衣",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "卫衣",
+    "color": "GRAY",
+    "colorHex": "#9a958d",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 29900,
+    "image": "prisma/seed-assets/realistic/women-16.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-16-cutout.webp",
+    "caption": "16. women 16 浅灰 粉圆领卫衣"
+  },
+  {
+    "slug": "real-women-17",
+    "name": "米 奶茶色针织开衫",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "针织开衫",
+    "color": "BEIGE",
+    "colorHex": "#e0d0b6",
+    "styles": [
+      "MINIMAL",
+      "CASUAL"
+    ],
+    "seasons": [
+      "WINTER",
+      "AUTUMN"
+    ],
+    "priceCents": 34900,
+    "image": "prisma/seed-assets/realistic/women-17.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-17-cutout.webp",
+    "caption": "17. women 17 米 奶茶色针织开衫"
+  },
+  {
+    "slug": "real-women-18",
+    "name": "黑 白修身针织衫",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "针织衫",
+    "color": "WHITE",
+    "colorHex": "#f3eee5",
+    "styles": [
+      "MINIMAL",
+      "CASUAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 39900,
+    "image": "prisma/seed-assets/realistic/women-18.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-18-cutout.webp",
+    "caption": "18. women 18 黑 白修身针织衫"
+  },
+  {
+    "slug": "real-women-19",
+    "name": "焦糖 灰长款毛衣外套",
+    "gender": "WOMEN",
+    "category": "OUTERWEAR",
+    "subCategory": "毛衣",
+    "color": "BROWN",
+    "colorHex": "#7a5638",
+    "styles": [
+      "SMART_CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "WINTER",
+      "AUTUMN"
+    ],
+    "priceCents": 94900,
+    "image": "prisma/seed-assets/realistic/women-19.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-19-cutout.webp",
+    "caption": "19. women 19 焦糖 灰长款毛衣外套"
+  },
+  {
+    "slug": "real-women-20",
+    "name": "米 黑V领针织马甲",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "针织马甲",
+    "color": "BLACK",
+    "colorHex": "#1c1a17",
+    "styles": [
+      "MINIMAL",
+      "CASUAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 19900,
+    "image": "prisma/seed-assets/realistic/women-20.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-20-cutout.webp",
+    "caption": "20. women 20 米 黑V领针织马甲"
+  },
+  {
+    "slug": "real-women-21",
+    "name": "粉 绿圆领针织衫",
+    "gender": "WOMEN",
+    "category": "TOP",
+    "subCategory": "针织衫",
+    "color": "PINK",
+    "colorHex": "#e2a7ad",
+    "styles": [
+      "MINIMAL",
+      "CASUAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 24900,
+    "image": "prisma/seed-assets/realistic/women-21.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-21-cutout.webp",
+    "caption": "21. women 21 粉 绿圆领针织衫"
+  },
+  {
+    "slug": "real-women-22",
+    "name": "卡其 黑A字半身裙",
+    "gender": "WOMEN",
+    "category": "BOTTOM",
+    "subCategory": "半身裙",
+    "color": "BEIGE",
+    "colorHex": "#e0d0b6",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 39900,
+    "image": "prisma/seed-assets/realistic/women-22.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-22-cutout.webp",
+    "caption": "22. women 22 卡其 黑A字半身裙"
+  },
+  {
+    "slug": "real-women-23",
+    "name": "深蓝 浅蓝牛仔半身裙",
+    "gender": "WOMEN",
+    "category": "BOTTOM",
+    "subCategory": "半身裙",
+    "color": "BLUE",
+    "colorHex": "#4a6f9b",
+    "styles": [
+      "CASUAL",
+      "SPORTY"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 44900,
+    "image": "prisma/seed-assets/realistic/women-23.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-23-cutout.webp",
+    "caption": "23. women 23 深蓝 浅蓝牛仔半身裙"
+  },
+  {
+    "slug": "real-women-24",
+    "name": "黑 灰百褶裙",
+    "gender": "WOMEN",
+    "category": "BOTTOM",
+    "subCategory": "百褶裙",
+    "color": "BLACK",
+    "colorHex": "#1c1a17",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 49900,
+    "image": "prisma/seed-assets/realistic/women-24.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-24-cutout.webp",
+    "caption": "24. women 24 黑 灰百褶裙"
+  },
+  {
+    "slug": "real-women-25",
+    "name": "黑 灰包臀裙",
+    "gender": "WOMEN",
+    "category": "BOTTOM",
+    "subCategory": "包臀裙",
+    "color": "BLACK",
+    "colorHex": "#1c1a17",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 54900,
+    "image": "prisma/seed-assets/realistic/women-25.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-25-cutout.webp",
+    "caption": "25. women 25 黑 灰包臀裙"
+  },
+  {
+    "slug": "real-women-26",
+    "name": "卡其 藏蓝百褶长裙",
+    "gender": "WOMEN",
+    "category": "BOTTOM",
+    "subCategory": "长裙",
+    "color": "NAVY",
+    "colorHex": "#26344d",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 29900,
+    "image": "prisma/seed-assets/realistic/women-26.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-26-cutout.webp",
+    "caption": "26. women 26 卡其 藏蓝百褶长裙"
+  },
+  {
+    "slug": "real-women-27",
+    "name": "深蓝 浅蓝直筒牛仔裤",
+    "gender": "WOMEN",
+    "category": "BOTTOM",
+    "subCategory": "牛仔裤",
+    "color": "BLUE",
+    "colorHex": "#4a6f9b",
+    "styles": [
+      "CASUAL",
+      "SPORTY"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 34900,
+    "image": "prisma/seed-assets/realistic/women-27.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-27-cutout.webp",
+    "caption": "27. women 27 深蓝 浅蓝直筒牛仔裤"
+  },
+  {
+    "slug": "real-women-28",
+    "name": "黑 卡其九分西裤",
+    "gender": "WOMEN",
+    "category": "BOTTOM",
+    "subCategory": "西裤",
+    "color": "BEIGE",
+    "colorHex": "#e0d0b6",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 39900,
+    "image": "prisma/seed-assets/realistic/women-28.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-28-cutout.webp",
+    "caption": "28. women 28 黑 卡其九分西裤"
+  },
+  {
+    "slug": "real-women-29",
+    "name": "黑 灰束脚运动裤",
+    "gender": "WOMEN",
+    "category": "BOTTOM",
+    "subCategory": "运动裤",
+    "color": "BLACK",
+    "colorHex": "#1c1a17",
+    "styles": [
+      "CASUAL",
+      "SPORTY"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 44900,
+    "image": "prisma/seed-assets/realistic/women-29.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-29-cutout.webp",
+    "caption": "29. women 29 黑 灰束脚运动裤"
+  },
+  {
+    "slug": "real-women-30",
+    "name": "黑 卡其阔腿裤",
+    "gender": "WOMEN",
+    "category": "BOTTOM",
+    "subCategory": "阔腿裤",
+    "color": "BEIGE",
+    "colorHex": "#e0d0b6",
+    "styles": [
+      "CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "ALL_SEASON"
+    ],
+    "priceCents": 49900,
+    "image": "prisma/seed-assets/realistic/women-30.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-30-cutout.webp",
+    "caption": "30. women 30 黑 卡其阔腿裤"
+  },
+  {
+    "slug": "real-women-31",
+    "name": "深蓝 浅蓝牛仔短裤",
+    "gender": "WOMEN",
+    "category": "BOTTOM",
+    "subCategory": "短裤",
+    "color": "BLUE",
+    "colorHex": "#4a6f9b",
+    "styles": [
+      "CASUAL",
+      "SPORTY"
+    ],
+    "seasons": [
+      "SUMMER",
+      "SPRING"
+    ],
+    "priceCents": 54900,
+    "image": "prisma/seed-assets/realistic/women-31.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-31-cutout.webp",
+    "caption": "31. women 31 深蓝 浅蓝牛仔短裤"
+  },
+  {
+    "slug": "real-women-32",
+    "name": "黑 米白修身小西装",
+    "gender": "WOMEN",
+    "category": "OUTERWEAR",
+    "subCategory": "西装",
+    "color": "BEIGE",
+    "colorHex": "#e0d0b6",
+    "styles": [
+      "SMART_CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "AUTUMN",
+      "WINTER"
+    ],
+    "priceCents": 69900,
+    "image": "prisma/seed-assets/realistic/women-32.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-32-cutout.webp",
+    "caption": "32. women 32 黑 米白修身小西装"
+  },
+  {
+    "slug": "real-women-33",
+    "name": "卡其 藏蓝中长款风衣",
+    "gender": "WOMEN",
+    "category": "OUTERWEAR",
+    "subCategory": "风衣",
+    "color": "NAVY",
+    "colorHex": "#26344d",
+    "styles": [
+      "SMART_CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "AUTUMN",
+      "WINTER"
+    ],
+    "priceCents": 74900,
+    "image": "prisma/seed-assets/realistic/women-33.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-33-cutout.webp",
+    "caption": "33. women 33 卡其 藏蓝中长款风衣"
+  },
+  {
+    "slug": "real-women-34",
+    "name": "黑 棕短款皮衣",
+    "gender": "WOMEN",
+    "category": "OUTERWEAR",
+    "subCategory": "皮衣",
+    "color": "BLACK",
+    "colorHex": "#1c1a17",
+    "styles": [
+      "SMART_CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "WINTER",
+      "AUTUMN"
+    ],
+    "priceCents": 79900,
+    "image": "prisma/seed-assets/realistic/women-34.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-34-cutout.webp",
+    "caption": "34. women 34 黑 棕短款皮衣"
+  },
+  {
+    "slug": "real-women-35",
+    "name": "黑 米白棒球服",
+    "gender": "WOMEN",
+    "category": "OUTERWEAR",
+    "subCategory": "棒球服",
+    "color": "BEIGE",
+    "colorHex": "#e0d0b6",
+    "styles": [
+      "SMART_CASUAL",
+      "MINIMAL"
+    ],
+    "seasons": [
+      "AUTUMN",
+      "WINTER"
+    ],
+    "priceCents": 84900,
+    "image": "prisma/seed-assets/realistic/women-35.jpg",
+    "cutout": "prisma/seed-assets/realistic/women-35-cutout.webp",
+    "caption": "35. women 35 黑 米白棒球服"
+  }
+]

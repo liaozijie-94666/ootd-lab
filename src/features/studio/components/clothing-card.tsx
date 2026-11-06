@@ -29,7 +29,7 @@ export function ClothingCard({
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-[radial-gradient(circle_at_50%_40%,#f7f2ea,#ece4d8)]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={item.cutoutUrl}
+          src={item.imageUrl}
           alt={item.name}
           loading="lazy"
           draggable={false}

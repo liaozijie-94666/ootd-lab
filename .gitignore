@@ -6,9 +6,9 @@ coverage
 .env
 .env.local
 .env.*.local
+.tools
 .data
 .cache
-.tools
 .pnpm-home
 .netlify
 public/seed

@@ -27,7 +27,7 @@ pnpm dev
 `pnpm dev` 会先执行 `scripts/ensure-db.ts`，再用 `scripts/run-next.ts` 持有 PGlite 锁并启动 Next：
 
 1. 用 **PGlite**（WASM PostgreSQL 17）在 `.data/pgdata` 建库，按顺序执行 `prisma/migrations/*/migration.sql`；重复启动/已存在列会兼容跳过；
-2. 生成演示用户与 48 件种子单品（服装图用 sharp 现场绘制，无外链、无版权风险）；
+2. 生成演示用户与 **70 件写实商品**（男士/女士各 35 件，图片来自课程素材并本地压缩；旧 48 件 SVG 自动归档）；
 3. 同一 `.data` 同时只允许一个 dev/start 进程；第二个实例会给出可读锁提示。
 
 首次启动约 10–20 秒；之后 2–3 秒。删除 `.data/` 即可重置。
@@ -53,7 +53,7 @@ pnpm dev
 - **三栏工作台**（桌面）/ 三 Tab（移动端）：照片、画布、衣橱、底部操作栏。
 - **照片上传**：JPG/PNG/WebP ≤10MB，前端校验 → 隐私授权弹窗 → 裁剪（3:4 / 1:1）+ 旋转 + 缩放 → 服务端重编码。
 - **隐私**：人脸与全身照都必须单独同意（写入 `Consent`，`FACE_IMAGE_PROCESSING` / `FULL_BODY_PROCESSING`）；照片 **AES-256-GCM 加密落盘**，读取走鉴权代理或 10 分钟 HMAC 签名 URL、`no-store`；可删除、可撤回授权。
-- **衣橱**：站内 / 我的；类别、颜色、风格、季节筛选；骨架屏、空态、错误重试。
+- **衣橱**：站内 70 件写实商品（男/女各 35）/ 我的；类别、颜色、风格、季节筛选；骨架屏、空态、错误重试。
 - **自有衣服**：上传 → 阈值抠图 → 透明 PNG → `Garment(source=USER_UPLOAD)`。
 - **画布**：拖拽、缩放、旋转、置顶/置底、删除、双击置顶、Delete 删除；归一化坐标与后端合成共用。
 - **异步试衣**：`POST /api/generation/try-on` → `202 {taskId}` → 轮询；失败重试 + 拼贴降级。

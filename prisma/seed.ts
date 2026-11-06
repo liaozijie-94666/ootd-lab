@@ -1,4 +1,6 @@
 import crypto from 'node:crypto'
+import { readFile } from 'node:fs/promises'
+import path from 'node:path'
 import { hash } from 'bcryptjs'
 import sharp from 'sharp'
 import type { PrismaClient } from '@prisma/client'
@@ -183,9 +185,10 @@ export async function seed(prisma: PrismaClient): Promise<void> {
   if (existingCount === 0) {
     await seedCatalog(prisma, demo.id)
   } else {
-    console.log(`[seed] 已存在 ${existingCount} 件单品，跳过种子数据`)
+    console.log(`[seed] 已存在 ${existingCount} 件单品，跳过旧种子`)
   }
 
+  await seedRealisticCatalog(prisma, demo.id)
   await seedCommunity(prisma, demo.id)
 }
 
@@ -275,8 +278,131 @@ async function seedCatalog(prisma: PrismaClient, demoId: string): Promise<void> 
   console.log(`[seed] 完成：单品 ${created} 件`)
 }
 
-function communityArt(a: string, b: string, c: string) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700">
+interface RealisticItem {
+  slug: string
+  name: string
+  gender: 'MEN' | 'WOMEN'
+  category: 'TOP' | 'BOTTOM' | 'DRESS' | 'OUTERWEAR'
+  subCategory: string
+  color: string
+  colorHex: string
+  styles: string[]
+  seasons: string[]
+  priceCents: number
+  image: string
+  cutout: string
+  caption: string
+}
+
+async function seedRealisticCatalog(prisma: PrismaClient, demoId: string): Promise<void> {
+  const dir = path.join(process.cwd(), 'prisma', 'seed-assets', 'realistic')
+  let items: RealisticItem[]
+  try {
+    items = JSON.parse(await readFile(path.join(dir, 'manifest.json'), 'utf8')) as RealisticItem[]
+  } catch {
+    console.log('[seed] 未找到写实商品 manifest，跳过')
+    return
+  }
+
+  const existing = await prisma.garment.findMany({
+    where: { slug: { startsWith: 'real-' } },
+    select: { slug: true },
+  })
+  const existingSlugs = new Set(existing.map((item) => item.slug))
+
+  let created = 0
+  for (const [index, item] of items.entries()) {
+    if (existingSlugs.has(item.slug)) continue
+
+    const imageBuffer = await readFile(path.join(process.cwd(), item.image))
+    const cutoutBuffer = await readFile(path.join(process.cwd(), item.cutout))
+    const imageMeta = await sharp(imageBuffer).metadata()
+    const cutoutMeta = await sharp(cutoutBuffer).metadata()
+
+    const imageId = crypto.randomUUID()
+    const cutoutId = crypto.randomUUID()
+    const imageKey = `catalog-realistic/${item.slug}.jpg`
+    const cutoutKey = `catalog-realistic/${item.slug}-cutout.webp`
+
+    await storage.put(imageKey, imageBuffer)
+    await prisma.mediaAsset.create({
+      data: {
+        id: imageId,
+        ownerId: demoId,
+        kind: 'GARMENT_RAW',
+        status: 'READY',
+        visibility: 'PUBLIC',
+        storageKey: imageKey,
+        mimeType: 'image/jpeg',
+        bytes: imageBuffer.byteLength,
+        width: imageMeta.width,
+        height: imageMeta.height,
+        encryption: 'NONE',
+        moderationStatus: 'APPROVED',
+        metadata: { slug: item.slug, realistic: true },
+      },
+    })
+
+    await storage.put(cutoutKey, cutoutBuffer)
+    await prisma.mediaAsset.create({
+      data: {
+        id: cutoutId,
+        ownerId: demoId,
+        kind: 'GARMENT_CUTOUT',
+        status: 'READY',
+        visibility: 'PUBLIC',
+        storageKey: cutoutKey,
+        mimeType: 'image/webp',
+        bytes: cutoutBuffer.byteLength,
+        width: cutoutMeta.width,
+        height: cutoutMeta.height,
+        encryption: 'NONE',
+        moderationStatus: 'APPROVED',
+        metadata: { slug: item.slug, realistic: true, cutout: true },
+      },
+    })
+
+    await prisma.garment.create({
+      data: {
+        slug: item.slug,
+        name: item.name,
+        category: item.category as never,
+        subCategory: item.subCategory,
+        gender: item.gender as never,
+        colors: [item.color] as never,
+        primaryColorHex: item.colorHex,
+        styles: item.styles as never,
+        seasons: item.seasons as never,
+        materials: ['棉'],
+        fit: 'regular',
+        priceCents: item.priceCents,
+        currency: 'CNY',
+        purchaseUrl: `https://example.com/ootd/${item.slug}`,
+        imageId,
+        cutoutId,
+        attributes: { seeded: true, realistic: true, caption: item.caption },
+        source: 'PLATFORM',
+        status: 'PUBLISHED',
+        popularity: 40 + ((index * 11) % 55),
+      },
+    })
+    created += 1
+  }
+
+  // 旧 SVG 商品保留数据，但不再出现在衣橱/推荐中
+  await prisma.garment.updateMany({
+    where: {
+      source: 'PLATFORM',
+      status: 'PUBLISHED',
+      NOT: { slug: { startsWith: 'real-' } },
+    },
+    data: { status: 'ARCHIVED' },
+  })
+
+  console.log(`[seed] 写实商品 ${created} 件（共 ${items.length} 件，旧 SVG 已归档）`)
+}
+
+function communityArt(a: string, b: string, c: string) {  return `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700">
     <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${a}"/><stop offset="100%" stop-color="${b}"/></linearGradient></defs>
     <rect width="900" height="700" fill="url(#g)"/>
     <circle cx="640" cy="210" r="150" fill="${c}" opacity="0.5"/>

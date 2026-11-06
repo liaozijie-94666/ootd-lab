@@ -55,7 +55,7 @@ export function toClothingDto(garment: GarmentWithRelations): ClothingItem {
     price: garment.priceCents == null ? null : Math.round(garment.priceCents / 100),
     currency: garment.currency,
     purchaseUrl: garment.purchaseUrl,
-    imageUrl: mediaUrl(garment.cutoutId ?? garment.imageId) ?? '/images/garment-placeholder.svg',
+    imageUrl: mediaUrl(garment.imageId) ?? '/images/garment-placeholder.svg',
     cutoutUrl: mediaUrl(garment.cutoutId ?? garment.imageId) ?? '/images/garment-placeholder.svg',
     source: garment.source,
     status: garment.status,
