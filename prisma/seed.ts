@@ -391,11 +391,7 @@ async function seedRealisticCatalog(prisma: PrismaClient, demoId: string): Promi
 
   // 旧 SVG 商品保留数据，但不再出现在衣橱/推荐中
   await prisma.garment.updateMany({
-    where: {
-      source: 'PLATFORM',
-      status: 'PUBLISHED',
-      NOT: { slug: { startsWith: 'real-' } },
-    },
+    where: { slug: { startsWith: 'seed-' } },
     data: { status: 'ARCHIVED' },
   })
 
