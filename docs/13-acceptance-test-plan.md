@@ -4,7 +4,7 @@
 | --- | --- |
 | 版本 | v1.0 |
 | 环境 | 本地 `pnpm dev`，PGlite，`IMAGE_PROVIDER_CHAIN=mock`，`LLM_PROVIDER=mock`，无任何第三方 Key |
-| 测试数据 | 种子用户 `demo@ootd.local` / 管理员 `admin@ootd.local`；合成 900×1400 全身照；48 件单品；4 篇社区帖 |
+| 测试数据 | 种子用户 `demo@ootd.local` / 管理员 `admin@ootd.local`；合成 900×1400 全身照；70 件写实单品；4 篇社区帖 |
 | 关联 | [隐私安全](12-privacy-security.md) · [待办拆分](14-todo-breakdown.md) |
 
 ---
@@ -43,7 +43,7 @@
 | ID | 步骤 | 期望 | 现状 |
 | --- | --- | --- | --- |
 | AC-101 | 删除 `.data` 后 `pnpm dev` | 自动建表（0001–0004）+ 种子 48 单品 / 4 帖 | ✅ |
-| AC-102 | 访问 `/outfit-studio` | 衣橱加载 48 件，无报错 | ✅ |
+| AC-102 | 访问 `/outfit-studio` | 衣橱加载 70 件写实商品，无报错 | ✅ |
 | AC-103 | 访问 `/ai-recommend` 提交场景 | 返回结构化方案 + 效果图 | ✅ |
 | AC-104 | 访问 `/community` | 4 篇种子帖，图片正常 | ✅ |
 

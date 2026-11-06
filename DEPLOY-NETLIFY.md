@@ -117,7 +117,7 @@ node_modules
 
 1. 安装 devDependencies（`tsx`/`prisma` 构建需要）；
 2. 用 `DIRECT_URL` 执行 `prisma migrate deploy`；
-3. `pnpm setup` 自动 seed（48 件单品 + 4 篇帖子 + demo/admin）；
+3. `pnpm setup` 自动 seed（70 件写实商品 + 4 篇帖子 + demo/admin）；
 4. `pnpm build`。
 
 ### 4.2 环境变量
@@ -161,7 +161,7 @@ IMAGE_WEBHOOK_SECRET=
 Deploy site → 等待 build。首次会：
 
 - 连接 Supabase 执行 0001–0005；
-- 上传 48 件种子衣服图 + 4 张社区图到 Supabase Storage；
+- 上传 70 件写实商品图（男/女各 35）+ 4 张社区图到 Supabase Storage；
 - 构建 Next。
 
 ---
