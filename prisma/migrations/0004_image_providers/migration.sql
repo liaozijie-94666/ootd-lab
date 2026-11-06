@@ -1,0 +1,3 @@
+-- 新增图像生成供应商枚举值（PostgreSQL 12+ 支持 IF NOT EXISTS）
+ALTER TYPE "public"."AIProvider" ADD VALUE IF NOT EXISTS 'STABLE_DIFFUSION';
+ALTER TYPE "public"."AIProvider" ADD VALUE IF NOT EXISTS 'IDM_VTON';

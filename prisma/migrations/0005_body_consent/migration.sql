@@ -1,0 +1,2 @@
+-- 全身照也需要单独授权（与 FACE_IMAGE_PROCESSING 同等级）
+ALTER TYPE "public"."ConsentType" ADD VALUE IF NOT EXISTS 'FULL_BODY_PROCESSING';

@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #17130f;
+  --color-ink-soft: #4a423a;
+  --color-muted: #8c8278;
+  --color-paper: #faf8f4;
+  --color-paper-deep: #f3efe7;
+  --color-surface: #ffffff;
+  --color-line: #e9e2d8;
+  --color-brand: #b4552d;
+  --color-brand-strong: #96431f;
+  --color-brand-soft: #f6e7df;
+  --color-camel: #c8a47e;
+  --color-success: #2f7d5d;
+  --color-danger: #b3261e;
+
+  --font-sans: "Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    system-ui, -apple-system, sans-serif;
+  --font-display: "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+
+  --radius-card: 1.125rem;
+  --shadow-soft: 0 1px 2px rgba(23, 19, 15, 0.06);
+  --shadow-lift: 0 16px 40px rgba(23, 19, 15, 0.12);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-brand);
+    color: #fff;
+  }
+
+  button,
+  [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .thin-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-line) transparent;
+  }
+
+  .canvas-grid {
+    background-image:
+      linear-gradient(to right, rgba(23, 19, 15, 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(23, 19, 15, 0.055) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 0px);
+  }
+}

@@ -1,0 +1,11 @@
+[build]
+  command = "pnpm install --frozen-lockfile --prod=false && DATABASE_URL=\"$DIRECT_URL\" pnpm prisma migrate deploy && pnpm prisma generate && pnpm setup && pnpm build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  PNPM_VERSION = "11.28.5"
+  NEXT_TELEMETRY_DISABLED = "1"
+  INLINE_TASK_MODE = "sync"
+  DB_DRIVER = "postgres"
+  STORAGE_DRIVER = "supabase"

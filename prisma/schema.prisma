@@ -1,0 +1,970 @@
+// OOTD Lab · Prisma schema
+// PostgreSQL 16 / Prisma 6
+// 约定：主键 cuid，表名 snake_case，金额单位「分」，时间 UTC。
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+  binaryTargets   = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Enums
+// ---------------------------------------------------------------------------
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  DELETED
+}
+
+enum Gender {
+  FEMALE
+  MALE
+  NON_BINARY
+  PREFER_NOT_SAY
+}
+
+enum GarmentGender {
+  WOMEN
+  MEN
+  UNISEX
+}
+
+enum BodyShape {
+  HOURGLASS
+  PEAR
+  APPLE
+  RECTANGLE
+  INVERTED_TRIANGLE
+  UNKNOWN
+}
+
+enum ConsentType {
+  TERMS
+  PRIVACY
+  FACE_IMAGE_PROCESSING
+  FULL_BODY_PROCESSING
+  MARKETING
+}
+
+enum EncryptionMode {
+  NONE
+  AES_256_GCM
+}
+
+enum MediaKind {
+  FACE
+  FULL_BODY
+  GARMENT_RAW
+  GARMENT_CUTOUT
+  RESULT
+  POST_IMAGE
+  EXPORT
+}
+
+enum MediaStatus {
+  PENDING
+  READY
+  FAILED
+  DELETED
+}
+
+enum MediaVisibility {
+  PRIVATE
+  UNLISTED
+  PUBLIC
+}
+
+enum ModerationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  NEEDS_REVIEW
+}
+
+enum ModerationDecision {
+  PASS
+  REVIEW
+  BLOCK
+}
+
+enum ModerationSource {
+  HEURISTIC
+  AI
+  HUMAN
+}
+
+enum GarmentCategory {
+  TOP
+  BOTTOM
+  DRESS
+  OUTERWEAR
+  SHOES
+  BAG
+  ACCESSORY
+}
+
+enum Slot {
+  TOP
+  BOTTOM
+  DRESS
+  OUTERWEAR
+  SHOES
+  BAG
+  ACCESSORY
+}
+
+enum ColorTag {
+  BLACK
+  WHITE
+  GRAY
+  BEIGE
+  BROWN
+  RED
+  ORANGE
+  YELLOW
+  GREEN
+  BLUE
+  NAVY
+  PURPLE
+  PINK
+  GOLD
+  SILVER
+  MULTI
+}
+
+enum StyleTag {
+  MINIMAL
+  CASUAL
+  STREET
+  BUSINESS
+  SMART_CASUAL
+  SPORTY
+  ROMANTIC
+  VINTAGE
+  Y2K
+  KOREAN
+  FRENCH
+  OUTDOOR
+  PREPPY
+  GOTHIC
+}
+
+enum Season {
+  SPRING
+  SUMMER
+  AUTUMN
+  WINTER
+  ALL_SEASON
+}
+
+enum GarmentStatus {
+  DRAFT
+  PROCESSING
+  READY
+  PUBLISHED
+  ARCHIVED
+}
+
+enum GarmentSource {
+  PLATFORM
+  USER_UPLOAD
+  AI_GENERATED
+}
+
+enum OutfitSource {
+  FREE_STYLE
+  AI_RECOMMENDATION
+}
+
+enum OutfitVisibility {
+  PRIVATE
+  UNLISTED
+  PUBLIC
+}
+
+enum OutfitStatus {
+  DRAFT
+  SAVED
+  GENERATING
+  READY
+  FAILED
+}
+
+enum TaskType {
+  VIRTUAL_TRYON
+  BG_REMOVAL
+  SCENE_RECOMMEND
+  DATA_EXPORT
+}
+
+enum TaskStatus {
+  QUEUED
+  PREPROCESSING
+  RUNNING
+  POSTPROCESSING
+  SUCCEEDED
+  FAILED
+  CANCELED
+  EXPIRED
+}
+
+enum AIProvider {
+  MOCK
+  FASHN
+  REPLICATE
+  COMFYUI
+  STABLE_DIFFUSION
+  IDM_VTON
+}
+
+enum TagKind {
+  STYLE
+  SCENE
+  GENERAL
+}
+
+enum PostStatus {
+  DRAFT
+  PENDING_REVIEW
+  PUBLISHED
+  REJECTED
+  REMOVED
+  DELETED
+}
+
+enum CommentStatus {
+  PUBLISHED
+  HIDDEN
+  DELETED
+}
+
+enum ReportTargetType {
+  POST
+  COMMENT
+  USER
+}
+
+enum ReportReason {
+  SEXUAL
+  ILLEGAL
+  VIOLENCE
+  COPYRIGHT
+  SPAM
+  HARASSMENT
+  OTHER
+}
+
+enum ReportStatus {
+  OPEN
+  REVIEWING
+  RESOLVED
+  REJECTED
+}
+
+enum NotificationType {
+  GENERATION_DONE
+  GENERATION_FAILED
+  LIKE
+  COMMENT
+  FOLLOW
+  MENTION
+  SYSTEM
+  MODERATION
+}
+
+enum UsageKind {
+  TRYON
+  CUTOUT
+  REROLL
+  EXPORT
+}
+
+enum DraftStatus {
+  EDITING
+  GENERATED
+  SAVED
+  DISCARDED
+}
+
+enum RecommendationStatus {
+  PENDING
+  READY
+  DEGRADED
+  FAILED
+}
+
+// ---------------------------------------------------------------------------
+// Identity & account
+// ---------------------------------------------------------------------------
+
+model User {
+  id            String     @id @default(cuid())
+  email         String     @unique
+  emailVerified DateTime?  @map("email_verified")
+  passwordHash  String?    @map("password_hash")
+  name          String?
+  image         String?
+  handle        String     @unique
+  role          Role       @default(USER)
+  status        UserStatus @default(ACTIVE)
+  createdAt     DateTime   @default(now()) @map("created_at")
+  updatedAt     DateTime   @updatedAt @map("updated_at")
+  deletedAt     DateTime?  @map("deleted_at")
+
+  profile           Profile?
+  accounts          Account[]
+  consents          Consent[]
+  media             MediaAsset[]
+  garments          Garment[]
+  outfits           Outfit[]
+  drafts            OutfitDraft[]
+  recommendations   Recommendation[]
+  tasks             GenerationTask[]
+  posts             Post[]
+  comments          Comment[]
+  postLikes         PostLike[]
+  commentLikes      CommentLike[]
+  bookmarks         PostBookmark[]
+  favorites         OutfitFavorite[]
+  following         Follow[]           @relation("Follower")
+  followers         Follow[]           @relation("Following")
+  reports           Report[]           @relation("Reporter")
+  handledReports    Report[]           @relation("ReportHandler")
+  notifications     Notification[]     @relation("NotificationRecipient")
+  actorNotifications Notification[]    @relation("NotificationActor")
+  auditLogs         AuditLog[]
+  moderationReviews ModerationRecord[] @relation("ModerationReviewer")
+  usageLedger       UsageLedger[]
+
+  @@index([status, createdAt])
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refreshToken      String? @map("refresh_token") @db.Text
+  accessToken       String? @map("access_token") @db.Text
+  expiresAt         Int?    @map("expires_at")
+  tokenType         String? @map("token_type")
+  scope             String?
+  idToken           String? @map("id_token") @db.Text
+  sessionState      String? @map("session_state")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+model Profile {
+  id            String      @id @default(cuid())
+  userId        String      @unique @map("user_id")
+  displayName   String?     @map("display_name") @db.VarChar(40)
+  bio           String?     @db.VarChar(280)
+  gender        Gender      @default(PREFER_NOT_SAY)
+  heightCm      Int?        @map("height_cm")
+  weightKg      Int?        @map("weight_kg")
+  bodyShape     BodyShape?  @map("body_shape")
+  city          String?     @db.VarChar(40)
+  stylePrefs    StyleTag[]  @map("style_prefs")
+  avoidedColors ColorTag[]  @map("avoided_colors")
+  budgetMin     Int?        @map("budget_min")
+  budgetMax     Int?        @map("budget_max")
+  isPublic      Boolean     @default(true) @map("is_public")
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("profiles")
+}
+
+// ---------------------------------------------------------------------------
+// Privacy & media
+// ---------------------------------------------------------------------------
+
+model Consent {
+  id           String      @id @default(cuid())
+  userId       String      @map("user_id")
+  type         ConsentType
+  policyVersion String     @map("policy_version") @db.VarChar(20)
+  granted      Boolean     @default(true)
+  grantedAt    DateTime    @default(now()) @map("granted_at")
+  revokedAt    DateTime?   @map("revoked_at")
+  ipHash       String?     @map("ip_hash")
+  userAgent    String?     @map("user_agent") @db.VarChar(512)
+  mediaAssetId String?     @map("media_asset_id")
+  createdAt    DateTime    @default(now()) @map("created_at")
+
+  user       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  mediaAsset MediaAsset? @relation(fields: [mediaAssetId], references: [id], onDelete: SetNull)
+
+  @@index([userId, type])
+  @@index([mediaAssetId])
+  @@map("consents")
+}
+
+model MediaAsset {
+  id               String           @id @default(cuid())
+  ownerId          String           @map("owner_id")
+  kind             MediaKind
+  status           MediaStatus      @default(PENDING)
+  visibility       MediaVisibility  @default(PRIVATE)
+  storageKey       String           @unique @map("storage_key")
+  mimeType         String           @map("mime_type") @db.VarChar(64)
+  bytes            Int
+  width            Int?
+  height           Int?
+  checksum         String?
+  encryption       EncryptionMode   @default(NONE)
+  isSensitive      Boolean          @default(false) @map("is_sensitive")
+  moderationStatus ModerationStatus @default(PENDING) @map("moderation_status")
+  metadata         Json?
+  expiresAt        DateTime?        @map("expires_at")
+  deletedAt        DateTime?        @map("deleted_at")
+  createdAt        DateTime         @default(now()) @map("created_at")
+  updatedAt        DateTime         @updatedAt @map("updated_at")
+
+  owner          User         @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  consents       Consent[]
+  garmentImages  Garment[]    @relation("GarmentImage")
+  garmentCutouts Garment[]    @relation("GarmentCutout")
+  outfitsBase    Outfit[]     @relation("OutfitBase")
+  outfitsFace    Outfit[]     @relation("OutfitFace")
+  outfitResults  Outfit[]     @relation("OutfitResult")
+  outfitCovers   Outfit[]     @relation("OutfitCover")
+  postImages     PostImage[]
+  postCovers     Post[]       @relation("PostCover")
+  draftUserPhotos OutfitDraft[] @relation("DraftUserPhoto")
+  draftFacePhotos OutfitDraft[] @relation("DraftFacePhoto")
+  draftResults    OutfitDraft[] @relation("DraftResult")
+  recommendationResults Recommendation[] @relation("RecommendationResult")
+
+  @@index([ownerId, kind])
+  @@index([status, createdAt])
+  @@map("media_assets")
+}
+
+// ---------------------------------------------------------------------------
+// Catalog
+// ---------------------------------------------------------------------------
+
+model Brand {
+  id      String  @id @default(cuid())
+  name    String  @db.VarChar(80)
+  slug    String  @unique
+  logoKey String? @map("logo_key")
+  siteUrl String? @map("site_url")
+
+  garments Garment[]
+
+  @@map("brands")
+}
+
+model Garment {
+  id              String         @id @default(cuid())
+  slug            String         @unique
+  name            String         @db.VarChar(120)
+  category        GarmentCategory
+  subCategory     String?        @map("sub_category") @db.VarChar(40)
+  gender          GarmentGender  @default(UNISEX)
+  colors          ColorTag[]
+  primaryColorHex String?        @map("primary_color_hex") @db.VarChar(9)
+  styles          StyleTag[]
+  seasons         Season[]
+  materials       String[]
+  fit             String?        @db.VarChar(40)
+  brandId         String?        @map("brand_id")
+  priceCents      Int?           @map("price_cents")
+  currency        String         @default("CNY") @db.VarChar(3)
+  purchaseUrl     String?        @map("purchase_url")
+  imageId         String?        @map("image_id")
+  cutoutId        String?        @map("cutout_id")
+  attributes      Json?
+  source          GarmentSource  @default(PLATFORM)
+  ownerId         String?        @map("owner_id")
+  status          GarmentStatus  @default(PUBLISHED)
+  popularity      Int            @default(0)
+  createdAt       DateTime       @default(now()) @map("created_at")
+  updatedAt       DateTime       @updatedAt @map("updated_at")
+
+  brand      Brand?      @relation(fields: [brandId], references: [id], onDelete: SetNull)
+  owner      User?       @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  image      MediaAsset? @relation("GarmentImage", fields: [imageId], references: [id], onDelete: SetNull)
+  cutout     MediaAsset? @relation("GarmentCutout", fields: [cutoutId], references: [id], onDelete: SetNull)
+  outfitItems OutfitItem[]
+
+  @@index([category, status])
+  @@index([status, popularity(sort: Desc)])
+  @@index([ownerId])
+  @@map("garments")
+}
+
+// ---------------------------------------------------------------------------
+// Outfits
+// ---------------------------------------------------------------------------
+
+model Outfit {
+  id            String           @id @default(cuid())
+  ownerId       String           @map("owner_id")
+  title         String           @db.VarChar(80)
+  source        OutfitSource     @default(FREE_STYLE)
+  status        OutfitStatus     @default(DRAFT)
+  visibility    OutfitVisibility @default(PRIVATE)
+  basePhotoId   String?          @map("base_photo_id")
+  facePhotoId   String?          @map("face_photo_id")
+  resultImageId String?          @map("result_image_id")
+  coverImageId  String?          @map("cover_image_id")
+  note          String?          @db.VarChar(500)
+  favoriteCount Int              @default(0) @map("favorite_count")
+  deletedAt     DateTime?        @map("deleted_at")
+  createdAt     DateTime         @default(now()) @map("created_at")
+  updatedAt     DateTime         @updatedAt @map("updated_at")
+
+  owner       User         @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  basePhoto   MediaAsset?  @relation("OutfitBase", fields: [basePhotoId], references: [id], onDelete: SetNull)
+  facePhoto   MediaAsset?  @relation("OutfitFace", fields: [facePhotoId], references: [id], onDelete: SetNull)
+  resultImage MediaAsset?  @relation("OutfitResult", fields: [resultImageId], references: [id], onDelete: SetNull)
+  coverImage  MediaAsset?  @relation("OutfitCover", fields: [coverImageId], references: [id], onDelete: SetNull)
+
+  items          OutfitItem[]
+  tasks          GenerationTask[]
+  posts          Post[]
+  favorites      OutfitFavorite[]
+  recommendation Recommendation?
+  draft          OutfitDraft?
+
+  @@index([ownerId, status])
+  @@index([visibility, createdAt])
+  @@map("outfits")
+}
+
+model OutfitItem {
+  id        String  @id @default(cuid())
+  outfitId  String  @map("outfit_id")
+  garmentId String  @map("garment_id")
+  slot      Slot
+  zIndex    Int     @default(0) @map("z_index")
+  isPrimary Boolean @default(true) @map("is_primary")
+  transform Json?
+  reason    String? @db.VarChar(200)
+
+  outfit  Outfit  @relation(fields: [outfitId], references: [id], onDelete: Cascade)
+  garment Garment @relation(fields: [garmentId], references: [id], onDelete: Restrict)
+
+  @@index([outfitId, slot])
+  @@index([garmentId])
+  @@map("outfit_items")
+}
+
+model OutfitDraft {
+  id            String      @id @default(cuid())
+  userId        String      @map("user_id")
+  userPhotoId   String?     @map("user_photo_id")
+  facePhotoId   String?     @map("face_photo_id")
+  layers        Json        @default("[]")
+  status        DraftStatus @default(EDITING)
+  resultImageId String?     @map("result_image_id")
+  outfitId      String?     @unique @map("outfit_id")
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userPhoto   MediaAsset? @relation("DraftUserPhoto", fields: [userPhotoId], references: [id], onDelete: SetNull)
+  facePhoto   MediaAsset? @relation("DraftFacePhoto", fields: [facePhotoId], references: [id], onDelete: SetNull)
+  resultImage MediaAsset? @relation("DraftResult", fields: [resultImageId], references: [id], onDelete: SetNull)
+  outfit      Outfit?     @relation(fields: [outfitId], references: [id], onDelete: SetNull)
+
+  @@index([userId, status])
+  @@map("outfit_drafts")
+}
+
+// ---------------------------------------------------------------------------
+// Generation & recommendation
+// ---------------------------------------------------------------------------
+
+model GenerationTask {
+  id             String     @id @default(cuid())
+  userId         String     @map("user_id")
+  type           TaskType
+  status         TaskStatus @default(QUEUED)
+  provider       AIProvider @default(MOCK)
+  providerJobId  String?    @map("provider_job_id")
+  idempotencyKey String?    @map("idempotency_key")
+  progress       Int        @default(0)
+  attempts       Int        @default(0)
+  maxAttempts    Int        @default(3) @map("max_attempts")
+  input          Json
+  output         Json?
+  errorCode      String?    @map("error_code")
+  errorMessage   String?    @map("error_message")
+  costCents      Int        @default(0) @map("cost_cents")
+  outfitId       String?    @map("outfit_id")
+  startedAt      DateTime?  @map("started_at")
+  finishedAt     DateTime?  @map("finished_at")
+  expiresAt      DateTime?  @map("expires_at")
+  createdAt      DateTime   @default(now()) @map("created_at")
+  updatedAt      DateTime   @updatedAt @map("updated_at")
+
+  user           User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  outfit         Outfit?         @relation(fields: [outfitId], references: [id], onDelete: SetNull)
+  events         GenerationEvent[]
+  recommendation Recommendation?
+
+  @@unique([userId, idempotencyKey])
+  @@index([status, createdAt])
+  @@index([providerJobId])
+  @@index([outfitId])
+  @@map("generation_tasks")
+}
+
+model GenerationEvent {
+  id        String     @id @default(cuid())
+  taskId    String     @map("task_id")
+  status    TaskStatus
+  message   String?    @db.VarChar(500)
+  payload   Json?
+  createdAt DateTime   @default(now()) @map("created_at")
+
+  task GenerationTask @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  @@index([taskId, createdAt])
+  @@map("generation_events")
+}
+
+model Recommendation {
+  id         String   @id @default(cuid())
+  userId     String   @map("user_id")
+  sceneText  String   @map("scene_text") @db.VarChar(200)
+  parsed     Json?
+  inputs     Json?
+  styleTitle String?  @map("style_title") @db.VarChar(60)
+  rationale  String?  @db.Text
+  tips       String[]
+  avoidTips  String[] @map("avoid_tips")
+  outfitId   String?  @unique @map("outfit_id")
+  taskId     String?  @unique @map("task_id")
+  parentId   String?  @map("parent_id")
+  provider   String?  @db.VarChar(40)
+  model      String?  @db.VarChar(60)
+  latencyMs  Int?     @map("latency_ms")
+  status     RecommendationStatus @default(PENDING)
+  itemsJson  Json?    @map("items_json")
+  resultImageId String? @map("result_image_id")
+  imageError String?  @map("image_error") @db.VarChar(500)
+  isFavorite Boolean  @default(false) @map("is_favorite")
+  savedAt    DateTime? @map("saved_at")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  user        User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  outfit      Outfit?         @relation(fields: [outfitId], references: [id], onDelete: SetNull)
+  task        GenerationTask? @relation(fields: [taskId], references: [id], onDelete: SetNull)
+  parent      Recommendation? @relation("Reroll", fields: [parentId], references: [id], onDelete: SetNull)
+  children    Recommendation[] @relation("Reroll")
+  resultImage MediaAsset?     @relation("RecommendationResult", fields: [resultImageId], references: [id], onDelete: SetNull)
+  posts       Post[]
+
+  @@index([userId, createdAt])
+  @@index([userId, isFavorite])
+  @@map("recommendations")
+}
+
+// ---------------------------------------------------------------------------
+// Community
+// ---------------------------------------------------------------------------
+
+model Post {
+  id               String           @id @default(cuid())
+  authorId         String           @map("author_id")
+  title            String           @db.VarChar(80)
+  body             String           @db.Text
+  coverImageId     String?          @map("cover_image_id")
+  outfitId         String?          @map("outfit_id")
+  recommendationId String?          @map("recommendation_id")
+  status           PostStatus       @default(DRAFT)
+  moderationStatus ModerationStatus @default(PENDING) @map("moderation_status")
+  likeCount        Int              @default(0) @map("like_count")
+  commentCount     Int              @default(0) @map("comment_count")
+  bookmarkCount    Int              @default(0) @map("bookmark_count")
+  viewCount        Int              @default(0) @map("view_count")
+  hotScore         Float            @default(0) @map("hot_score")
+  publishedAt      DateTime?        @map("published_at")
+  deletedAt        DateTime?        @map("deleted_at")
+  createdAt        DateTime         @default(now()) @map("created_at")
+  updatedAt        DateTime         @updatedAt @map("updated_at")
+
+  author     User         @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  coverImage MediaAsset?  @relation("PostCover", fields: [coverImageId], references: [id], onDelete: SetNull)
+  outfit     Outfit?      @relation(fields: [outfitId], references: [id], onDelete: SetNull)
+  recommendation Recommendation? @relation(fields: [recommendationId], references: [id], onDelete: SetNull)
+
+  images    PostImage[]
+  tags      PostTag[]
+  comments  Comment[]
+  likes     PostLike[]
+  bookmarks PostBookmark[]
+
+  @@index([status, publishedAt(sort: Desc)])
+  @@index([status, hotScore(sort: Desc)])
+  @@index([authorId, createdAt])
+  @@index([recommendationId])
+  @@map("posts")
+}
+
+model PostImage {
+  id       String @id @default(cuid())
+  postId   String @map("post_id")
+  mediaId  String @map("media_id")
+  position Int
+
+  post  Post       @relation(fields: [postId], references: [id], onDelete: Cascade)
+  media MediaAsset @relation(fields: [mediaId], references: [id], onDelete: Restrict)
+
+  @@unique([postId, position])
+  @@index([mediaId])
+  @@map("post_images")
+}
+
+model Tag {
+  id         String  @id @default(cuid())
+  slug       String  @unique @db.VarChar(40)
+  name       String  @db.VarChar(40)
+  kind       TagKind @default(GENERAL)
+  usageCount Int     @default(0) @map("usage_count")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  posts PostTag[]
+
+  @@index([kind, usageCount(sort: Desc)])
+  @@map("tags")
+}
+
+model PostTag {
+  postId String @map("post_id")
+  tagId  String @map("tag_id")
+
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tag  Tag  @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, tagId])
+  @@index([tagId])
+  @@map("post_tags")
+}
+
+model Comment {
+  id        String        @id @default(cuid())
+  postId    String        @map("post_id")
+  authorId  String        @map("author_id")
+  parentId  String?       @map("parent_id")
+  body      String        @db.VarChar(500)
+  status    CommentStatus @default(PUBLISHED)
+  likeCount Int           @default(0) @map("like_count")
+  deletedAt DateTime?     @map("deleted_at")
+  createdAt DateTime      @default(now()) @map("created_at")
+
+  post     Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  author   User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  parent   Comment? @relation("Replies", fields: [parentId], references: [id], onDelete: Cascade)
+  replies  Comment[] @relation("Replies")
+  likes    CommentLike[]
+
+  @@index([postId, createdAt])
+  @@index([parentId])
+  @@map("comments")
+}
+
+model PostLike {
+  postId    String   @map("post_id")
+  userId    String   @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([postId, userId])
+  @@index([userId])
+  @@map("post_likes")
+}
+
+model CommentLike {
+  commentId String   @map("comment_id")
+  userId    String   @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  comment Comment @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([commentId, userId])
+  @@map("comment_likes")
+}
+
+model PostBookmark {
+  postId    String   @map("post_id")
+  userId    String   @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([postId, userId])
+  @@index([userId, createdAt])
+  @@map("post_bookmarks")
+}
+
+model OutfitFavorite {
+  outfitId  String   @map("outfit_id")
+  userId    String   @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  outfit Outfit @relation(fields: [outfitId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([outfitId, userId])
+  @@index([userId])
+  @@map("outfit_favorites")
+}
+
+model Follow {
+  id          String   @id @default(cuid())
+  followerId  String   @map("follower_id")
+  followingId String   @map("following_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  follower  User @relation("Follower", fields: [followerId], references: [id], onDelete: Cascade)
+  following User @relation("Following", fields: [followingId], references: [id], onDelete: Cascade)
+
+  @@unique([followerId, followingId])
+  @@index([followingId])
+  @@map("follows")
+}
+
+// ---------------------------------------------------------------------------
+// Governance & operations
+// ---------------------------------------------------------------------------
+
+model Report {
+  id          String           @id @default(cuid())
+  reporterId  String           @map("reporter_id")
+  targetType  ReportTargetType @map("target_type")
+  targetId    String           @map("target_id")
+  reason      ReportReason
+  detail      String?          @db.VarChar(500)
+  status      ReportStatus     @default(OPEN)
+  handledById String?          @map("handled_by_id")
+  resolution  String?          @db.VarChar(500)
+  createdAt   DateTime         @default(now()) @map("created_at")
+  updatedAt   DateTime         @updatedAt @map("updated_at")
+
+  reporter  User  @relation("Reporter", fields: [reporterId], references: [id], onDelete: Cascade)
+  handledBy User? @relation("ReportHandler", fields: [handledById], references: [id], onDelete: SetNull)
+
+  @@index([status, createdAt])
+  @@index([targetType, targetId])
+  @@map("reports")
+}
+
+model ModerationRecord {
+  id         String             @id @default(cuid())
+  targetType String             @map("target_type") @db.VarChar(20)
+  targetId   String             @map("target_id")
+  source     ModerationSource
+  labels     String[]
+  score      Float?
+  decision   ModerationDecision
+  reviewerId String?            @map("reviewer_id")
+  note       String?            @db.VarChar(500)
+  createdAt  DateTime           @default(now()) @map("created_at")
+
+  reviewer User? @relation("ModerationReviewer", fields: [reviewerId], references: [id], onDelete: SetNull)
+
+  @@index([targetType, targetId])
+  @@index([createdAt])
+  @@map("moderation_records")
+}
+
+model SensitiveTerm {
+  id        String   @id @default(cuid())
+  term      String   @unique @db.VarChar(60)
+  category  String   @db.VarChar(40)
+  action    String   @default("BLOCK") @db.VarChar(10)
+  enabled   Boolean  @default(true)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("sensitive_terms")
+}
+
+model Notification {
+  id          String           @id @default(cuid())
+  recipientId String           @map("recipient_id")
+  actorId     String?          @map("actor_id")
+  type        NotificationType
+  entityType  String?          @map("entity_type") @db.VarChar(20)
+  entityId    String?          @map("entity_id")
+  payload     Json?
+  readAt      DateTime?        @map("read_at")
+  createdAt   DateTime         @default(now()) @map("created_at")
+
+  recipient User  @relation("NotificationRecipient", fields: [recipientId], references: [id], onDelete: Cascade)
+  actor     User? @relation("NotificationActor", fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([recipientId, readAt, createdAt])
+  @@map("notifications")
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  actorId    String?  @map("actor_id")
+  action     String   @db.VarChar(60)
+  targetType String?  @map("target_type") @db.VarChar(20)
+  targetId   String?  @map("target_id")
+  ipHash     String?  @map("ip_hash")
+  userAgent  String?  @map("user_agent") @db.VarChar(512)
+  meta       Json?
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  actor User? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([actorId, createdAt])
+  @@index([action, createdAt])
+  @@map("audit_logs")
+}
+
+model UsageLedger {
+  id        String    @id @default(cuid())
+  userId    String    @map("user_id")
+  day       DateTime  @db.Date
+  kind      UsageKind
+  count     Int       @default(0)
+  costCents Int       @default(0) @map("cost_cents")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, day, kind])
+  @@map("usage_ledger")
+}
