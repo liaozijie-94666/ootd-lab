@@ -544,29 +544,27 @@ export async function runRecommendationTask(taskId: string): Promise<void> {
     })
     if (!recommendation) throw new ApiError('NOT_FOUND', '推荐不存在', 404)
 
-    const buffers = new Map<string, Buffer>()
-    for (const layer of input.layers) {
-      const garment = await prisma.garment.findUnique({
-        where: { id: layer.clothingId },
+    const uniqueIds = [...new Set(input.layers.map((layer) => layer.clothingId))]
+    const [garments, userMedia] = await Promise.all([
+      prisma.garment.findMany({
+        where: { id: { in: uniqueIds } },
         include: { cutout: true },
-      })
-      if (!garment?.cutoutId) {
-        throw new ApiError('ITEM_IMAGE_MISSING', `「${garment?.name ?? '单品'}」缺少可用图片`, 422)
-      }
-      const asset = await prisma.mediaAsset.findFirst({
-        where: { id: garment.cutoutId, status: 'READY', deletedAt: null },
-      })
-      if (!asset) {
-        throw new ApiError('ITEM_IMAGE_MISSING', `「${garment.name}」图片已失效`, 422)
-      }
-      buffers.set(layer.clothingId, await readMediaBuffer(asset))
-    }
+      }),
+      input.userPhotoId ? getOwnedMedia(input.userPhotoId, task.userId) : Promise.resolve(null),
+    ])
 
-    let userPhoto: Buffer | undefined
-    if (input.userPhotoId) {
-      const media = await getOwnedMedia(input.userPhotoId, task.userId)
-      userPhoto = await readMediaBuffer(media)
-    }
+    const [entries, userPhoto] = await Promise.all([
+      Promise.all(
+        garments.map(async (garment) => {
+          if (!garment.cutoutId || !garment.cutout) {
+            throw new ApiError('ITEM_IMAGE_MISSING', `「${garment.name}」缺少可用图片`, 422)
+          }
+          return [garment.id, await readMediaBuffer(garment.cutout)] as const
+        }),
+      ),
+      userMedia ? readMediaBuffer(userMedia) : Promise.resolve(undefined),
+    ])
+    const buffers = new Map(entries)
 
     await transition(taskId, 'RUNNING', 52, '合成推荐效果图')
 
